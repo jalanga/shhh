@@ -97,7 +97,7 @@ class Views:
             profile.update_preferences()
 
             browser = webdriver.Remote(
-                command_executor='http://127.0.0.1:4444/wd/hub',
+                command_executor='http://selenium:4444/wd/hub',
                 browser_profile=profile,
                 proxy=proxy
             )
