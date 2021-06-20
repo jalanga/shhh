@@ -69,6 +69,7 @@ class Views:
         return random.choice(agents)
 
     def spawn(self):
+        browser = None
         try:
             proxy_ip = self.get_proxy()
 
@@ -127,6 +128,10 @@ class Views:
             print("Votes: %d" % self.votes)
             print('-------------------')
         except Exception:
-            pass
+            if browser:
+                try:
+                    browser.quit()
+                except Exception:
+                    pass
 
 Views()
