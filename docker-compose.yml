@@ -1,0 +1,23 @@
+version: "2"
+services:
+  selenium:
+    image: selenium/standalone-firefox-debug:latest
+    ports:
+      - "4444:4444"
+      - "5901:5900"
+
+  web:
+    build:
+     context: .
+    command: bash -c  "sleep 3 && python3 ./main.py"
+    privileged: true
+    env_file:
+      - ./config.env
+    volumes:
+      - ./proxies.txt:/proxies.txt
+    links:
+      - selenium:selenium
+
+volumes:
+  esdata:
+    driver: local
