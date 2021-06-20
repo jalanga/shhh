@@ -22,6 +22,11 @@ class Views:
         self.time_sleep = int(os.getenv('TIME_SLEEP', 10))
         self.coin_link = os.getenv("COIN_LINK", "https://coinmarketcap.com/currencies/pornrocket/")
         self.workers = int(os.getenv("WORKERS", 3))
+        print('---------------')
+        print('Config:')
+        print("Time sleep: %d" % self.time_sleep)
+        print("Workers: %d" % self.workers)
+        print("Link: %s" % self.coin_link)
         self.get_proxies()
         self.do()
 
@@ -44,7 +49,7 @@ class Views:
         while True:
             for i in range(self.workers):
                 threading.Thread(target=self.spawn).start()
-                time.sleep(5)
+                time.sleep(1)
             time.sleep(self.time_sleep + 4)
 
     @staticmethod
