@@ -19,6 +19,4 @@ Run the project:
 
 You can view what is happening using VNC, use a vnc app, connect to 127.0.0.1:5901, the password is `secret`
 
----------------
 
-Donations: PornRocket Address: 0xcd29123f16C9476520F59dD132A7Fd8EC5EC0259
